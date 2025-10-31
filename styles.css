@@ -489,19 +489,12 @@ nav a:hover {
 .about-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Hace que la imagen llene el círculo sin deformarse */
+    object-fit: cover;
     transition: transform 0.4s ease;
 }
 
 .about-image img:hover {
-    transform: scale(1.08); /* Pequeño zoom al pasar el mouse */
-}
-
-
-
-.about-image span {
-    position: relative;
-    z-index: 1;
+    transform: scale(1.08);
 }
 
 .about-text {
@@ -512,6 +505,7 @@ nav a:hover {
 .about-text p {
     margin-bottom: 20px;
 }
+
 
 /* ===== HABILIDADES ===== */
 .skills-grid {
