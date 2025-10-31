@@ -1,11 +1,9 @@
-// ===== FUNCIONES PRINCIPALES =====
-
-/**
- * Crear partículas animadas de fondo
- */
+// ===== CREAR PARTÍCULAS DE FONDO =====
 function createParticles() {
     const particlesContainer = document.getElementById('particles');
-    const particleCount = 50;
+    if (!particlesContainer) return;
+    
+    const particleCount = window.innerWidth < 768 ? 30 : 50;
 
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
@@ -18,9 +16,7 @@ function createParticles() {
     }
 }
 
-/**
- * Configurar scroll suave para la navegación
- */
+// ===== SCROLL SUAVE =====
 function smoothScroll() {
     const links = document.querySelectorAll('nav a[href^="#"]');
     
@@ -40,9 +36,7 @@ function smoothScroll() {
     });
 }
 
-/**
- * Manejar animaciones al hacer scroll
- */
+// ===== ANIMACIONES AL HACER SCROLL =====
 function handleScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
@@ -57,27 +51,23 @@ function handleScrollAnimations() {
         });
     }, observerOptions);
 
-    // Observar todos los elementos con clase fade-in
     document.querySelectorAll('.fade-in').forEach(element => {
         observer.observe(element);
     });
 }
 
-/**
- * Efecto de auto-ocultación de la barra de navegación
- */
+// ===== NAVBAR AUTO-HIDE AL HACER SCROLL =====
 function handleNavbarEffect() {
     let lastScrollTop = 0;
     const navbar = document.querySelector('nav');
+    if (!navbar) return;
 
     window.addEventListener('scroll', () => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
         if (scrollTop > lastScrollTop && scrollTop > 100) {
-            // Scrolling hacia abajo - ocultar navbar
             navbar.style.transform = 'translateY(-100%)';
         } else {
-            // Scrolling hacia arriba - mostrar navbar
             navbar.style.transform = 'translateY(0)';
         }
         
@@ -85,78 +75,7 @@ function handleNavbarEffect() {
     });
 }
 
-/**
- * Crear efecto de cursor personalizado
- */
-function initCustomCursor() {
-    document.addEventListener('mousemove', (e) => {
-        const cursor = document.createElement('div');
-        cursor.style.cssText = `
-            position: fixed;
-            left: ${e.clientX}px;
-            top: ${e.clientY}px;
-            width: 4px;
-            height: 4px;
-            background: rgba(0, 255, 255, 0.8);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            animation: cursorFade 1s ease-out forwards;
-        `;
-        
-        document.body.appendChild(cursor);
-        
-        // Remover el elemento después de la animación
-        setTimeout(() => {
-            cursor.remove();
-        }, 1000);
-    });
-}
-
-/**
- * Añadir estilos dinámicos para el cursor
- */
-function addCursorStyles() {
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes cursorFade {
-            0% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: scale(0);
-            }
-        }
-    `;
-    document.head.appendChild(style);
-}
-
-/**
- * Efecto de typing en el título principal (opcional)
- */
-function initTypingEffect() {
-    const heroTitle = document.querySelector('.hero-content h1');
-    if (!heroTitle) return;
-    
-    const originalText = heroTitle.textContent;
-    heroTitle.textContent = '';
-    
-    let i = 0;
-    const typingInterval = setInterval(() => {
-        if (i < originalText.length) {
-            heroTitle.textContent += originalText.charAt(i);
-            i++;
-        } else {
-            clearInterval(typingInterval);
-        }
-    }, 100);
-}
-
-/**
- * Añadir efectos hover mejorados a las tarjetas
- */
+// ===== EFECTOS HOVER EN TARJETAS =====
 function enhanceCardEffects() {
     const cards = document.querySelectorAll('.skill-card, .project-card, .contact-item');
     
@@ -171,100 +90,11 @@ function enhanceCardEffects() {
     });
 }
 
-/**
- * Efecto de paralaje suave en elementos
- */
-function initParallaxEffect() {
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('.hero-content');
-        
-        parallaxElements.forEach(element => {
-            const speed = 0.5;
-            element.style.transform = `translateY(${scrolled * speed}px)`;
-        });
-    });
-}
-
-/**
- * Preloader simple
- */
-function initPreloader() {
-    window.addEventListener('load', () => {
-        document.body.classList.add('loaded');
-        
-        // Añadir estilos para el preloader si es necesario
-        const style = document.createElement('style');
-        style.textContent = `
-            body:not(.loaded) {
-                overflow: hidden;
-            }
-            
-            body:not(.loaded)::before {
-                content: '';
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: #0a0a0a;
-                z-index: 9999;
-                animation: fadeOut 0.5s ease-out 0.5s forwards;
-            }
-            
-            @keyframes fadeOut {
-                to {
-                    opacity: 0;
-                    visibility: hidden;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    });
-}
-
-// ===== INICIALIZACIÓN =====
-
-/**
- * Inicializar todas las funcionalidades cuando el DOM esté listo
- */
-document.addEventListener('DOMContentLoaded', () => {
-    // Funciones principales
-    createParticles();
-    smoothScroll();
-    handleScrollAnimations();
-    handleNavbarEffect();
-    
-    // Efectos visuales
-    initCustomCursor();
-    addCursorStyles();
-    enhanceCardEffects();
-    
-    // Efectos opcionales (descomenta si los quieres usar)
-    // initTypingEffect();
-    // initParallaxEffect();
-    // initPreloader();
-    
-    console.log('🚀 Portafolio cargado exitosamente!');
-});
-
-// ===== FUNCIONES UTILITARIAS =====
-
-/**
- * Función para cambiar tema (por si quieres añadir un toggle)
- */
-function toggleTheme() {
-    document.body.classList.toggle('light-theme');
-}
-
-/**
- * Función para detectar si el usuario prefiere movimiento reducido
- */
+// ===== RESPETAR PREFERENCIAS DE MOVIMIENTO =====
 function respectMotionPreference() {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     
     if (prefersReducedMotion.matches) {
-        // Desactivar animaciones complejas
         document.body.classList.add('reduced-motion');
         
         const style = document.createElement('style');
@@ -279,6 +109,23 @@ function respectMotionPreference() {
     }
 }
 
-// Respetar preferencias de accesibilidad
-respectMotionPreference();
+// ===== INICIALIZACIÓN =====
+document.addEventListener('DOMContentLoaded', () => {
+    createParticles();
+    smoothScroll();
+    handleScrollAnimations();
+    handleNavbarEffect();
+    enhanceCardEffects();
+    respectMotionPreference();
+    
+    console.log('🚀 Portafolio cargado exitosamente!');
+});
 
+// ===== AJUSTAR PARTÍCULAS AL CAMBIAR TAMAÑO DE VENTANA =====
+window.addEventListener('resize', () => {
+    const particlesContainer = document.getElementById('particles');
+    if (particlesContainer) {
+        particlesContainer.innerHTML = '';
+        createParticles();
+    }
+});
