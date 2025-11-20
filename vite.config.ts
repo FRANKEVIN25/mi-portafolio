@@ -5,11 +5,14 @@ import sitemap from "vite-plugin-sitemap";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // 🚨 AÑADE ESTA LÍNEA AQUÍ
+  base: '/mi-portafolio/', 
+
   plugins: [
     vue(),
     tailwindcss(),
     sitemap({
-      hostname: "https://migliorelli.dev",
+      hostname: "https://Frank.dev",
       outDir: "dist",
       i18n: {
         defaultLanguage: "pt-BR",
@@ -24,21 +27,11 @@ export default defineConfig({
     // strictPort: true,
     // host: true,
     // watch: {
-    //   usePolling: true,
+    //   usePolling: true,
     // },
   },
   // build: {
-  //   outDir: "dist",
-  //   assetsDir: "assets",
-  //   emptyOutDir: true,
-  //   sourcemap: false,
-  //   chunkSizeWarningLimit: 800,
-  //   minify: "terser",
-  //   terserOptions: {
-  //     compress: {
-  //       drop_console: true,
-  //       drop_debugger: true,
-  //     },
-  //   },
+  //   outDir: "dist",
+  // ...
   // },
 });
