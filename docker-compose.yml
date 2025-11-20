@@ -1,0 +1,18 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: miguelmib/migliorelli.dev:latest
+    container_name: migliorelli.dev
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    ports:
+      - "3000:80"
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge

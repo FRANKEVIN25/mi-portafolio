@@ -1,0 +1,21 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev  # Usaremos un Dockerfile diferente
+    container_name: migliorelli.dev-dev
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=development
+    ports:
+      - "5173:5173"  # Puerto de Vite
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm run dev -- --host 0.0.0.0
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge

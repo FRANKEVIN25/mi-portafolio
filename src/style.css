@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --font-jetbrains-mono: "JetBrains Mono", monospace;
+  --font-segoe: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  --font-emoji: "Noto Color Emoji", sans-serif;
+
+  --color-background: oklch(14.077% 0.00439 285.82);
+  --color-background-alt: oklch(18.356% 0.00607 285.79);
+  --color-foreground: oklch(71.181% 0.01294 286.07);
+
+  --color-card: oklch(26.698% 0.01107 285.63);
+  --color-muted: oklch(34.424% 0.01559 285.55);
+
+  /* Paleta de colores AZUL OSCURO INTENSO */
+  --color-primary: oklch(55% 0.25 245);
+  --color-primary-50: oklch(92% 0.02 245);
+  --color-primary-100: oklch(88% 0.04 245);
+  --color-primary-200: oklch(80% 0.08 245);
+  --color-primary-300: oklch(72% 0.14 245);
+  --color-primary-400: oklch(62% 0.20 245);
+  --color-primary-500: oklch(55% 0.25 245);
+  --color-primary-600: oklch(48% 0.28 245);
+  --color-primary-700: oklch(42% 0.27 245);
+  --color-primary-800: oklch(36% 0.24 245);
+  --color-primary-900: oklch(30% 0.20 245);
+  --color-primary-950: oklch(22% 0.16 245);
+  
+  /* 
+  OTROS TONOS DE AZUL que puedes probar:
+  - 240 = Azul puro/brillante (actual)
+  - 235 = Azul más vibrante
+  - 250 = Azul-cian
+  - 260 = Azul-índigo
+  - 220 = Azul cielo
+  */
+}
+
+@layer base {
+  * {
+    @apply selection:bg-primary-300/50 selection:text-primary-200;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply font-segoe text-foreground bg-background m-0 min-h-dvh overflow-x-hidden antialiased;
+  }
+
+  #app {
+    @apply h-full w-full;
+  }
+}
+
+@utility shadow-primary {
+  box-shadow: 0px 10px 50px 0px --alpha(theme("colors.primary.700") / 25%);
+}
+
+@utility text-gradient {
+  @apply from-primary-400 to-primary-600 bg-gradient-to-r bg-clip-text text-transparent;
+}
