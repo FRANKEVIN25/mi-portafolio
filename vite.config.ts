@@ -3,16 +3,15 @@ import vue from "@vitejs/plugin-vue";
 import { defineConfig } from "vite";
 import sitemap from "vite-plugin-sitemap";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  // 🚨 AÑADE ESTA LÍNEA AQUÍ
-  base: '/mi-portafolio/', 
+  // Cambia 'mi-portafolio' por el nombre de tu repositorio de GitHub
+  base: process.env.NODE_ENV === 'production' ? '/mi-portafolio/' : '/',
 
   plugins: [
     vue(),
     tailwindcss(),
     sitemap({
-      hostname: "https://Frank.dev",
+      hostname: "https://FRANKKEVIN25.github.io/mi-portafolio", // Cambia esto
       outDir: "dist",
       i18n: {
         defaultLanguage: "pt-BR",
@@ -23,15 +22,5 @@ export default defineConfig({
   ],
   server: {
     port: (process.env.PORT as unknown as number) || 3000,
-    // port: 3000,
-    // strictPort: true,
-    // host: true,
-    // watch: {
-    //   usePolling: true,
-    // },
   },
-  // build: {
-  //   outDir: "dist",
-  // ...
-  // },
 });
