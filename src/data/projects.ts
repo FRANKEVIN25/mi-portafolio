@@ -18,16 +18,16 @@ export const projects = [
     href: "https://gaviperu.com",
   },
   {
-    id: "snakefrutas",
+    id: "Cazador de frutas",
     image: `${import.meta.env.BASE_URL}projects/alimentos.webp`,
     techs: ["Python", "Pygame"],
-    github: "https://github.com/FRANKEVIN25/snake-frutas",
+    github: "https://github.com/FRANKEVIN25/Cazador-de-Frutas",
   },
   {
-    id: "dashboardiot",
+    id: "dashboard",
     image: `${import.meta.env.BASE_URL}projects/dashboard.webp`,
     techs: ["Python", "Grafana", "InfluxDB"],
-    github: "https://github.com/FRANKEVIN25/dashboard-iot",
+    github: "https://github.com/FRANKEVIN25/Dashboard",
   },
   {
     id: "tetris",
