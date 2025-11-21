@@ -4,7 +4,7 @@ import { defineConfig } from "vite";
 import sitemap from "vite-plugin-sitemap";
 
 export default defineConfig({
-  base: '/', // Simplemente así
+  base: process.env.NODE_ENV === 'production' ? '/mi-portafolio/' : '/',
 
   plugins: [
     vue(),
