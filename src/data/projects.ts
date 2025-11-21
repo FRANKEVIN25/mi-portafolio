@@ -1,44 +1,38 @@
 export const projects = [
   {
     id: "hananweb",
-    image: "/projects/hanancloud.webp",
+    image: `${import.meta.env.BASE_URL}projects/hanancloud.webp`,
     techs: ["HTML", "CSS", "JavaScript"],
-    href: "https://hanancloud.com", // Cambia por la URL real si la tienes
-    // github: "https://github.com/FRANKEVIN25/hanan-web", // Descomenta si tienes el repo
+    href: "https://hanancloud.com",
   },
   {
     id: "dyeingenieria",
-    image: "/projects/dyeingenieria.webp",
+    image: `${import.meta.env.BASE_URL}projects/dyeingenieria.webp`,
     techs: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-    href: "https://dyeinge.com", // Cambia por la URL real si la tienes
-    // github: "https://github.com/FRANKEVIN25/dye-ingenieria",
+    href: "https://dyeinge.com",
   },
   {
     id: "gaviperu",
-    image: "/projects/gaviperu.webp",
+    image: `${import.meta.env.BASE_URL}projects/gaviperu.webp`,
     techs: ["HTML", "CSS", "JavaScript", "E-commerce"],
-    href: "https://gaviperu.com", // Cambia por la URL real si la tienes
-    // github: "https://github.com/FRANKEVIN25/gavi-peru",
+    href: "https://gaviperu.com",
   },
   {
     id: "snakefrutas",
-    image: "/projects/alimentos.webp",
+    image: `${import.meta.env.BASE_URL}projects/alimentos.webp`,
     techs: ["Python", "Pygame"],
-    // href: "URL_DE_TU_PROYECTO",
-    github: "https://github.com/FRANKEVIN25/snake-frutas", // Cambia por tu repo
+    github: "https://github.com/FRANKEVIN25/snake-frutas",
   },
   {
-    id: "dashboard",
-    image: "/projects/dashboard.webp",
+    id: "dashboardiot",
+    image: `${import.meta.env.BASE_URL}projects/dashboard.webp`,
     techs: ["Python", "Grafana", "InfluxDB"],
-    // href: "URL_DE_TU_PROYECTO",
-    github: "https://github.com/FRANKEVIN25/dashboard-iot", // Cambia por tu repo
+    github: "https://github.com/FRANKEVIN25/dashboard-iot",
   },
   {
     id: "tetris",
-    image: "/projects/tetris.webp",
+    image: `${import.meta.env.BASE_URL}projects/tetris.webp`,
     techs: ["Python", "Pygame"],
-    // href: "URL_DE_TU_PROYECTO",
-    github: "https://github.com/FRANKEVIN25/tetris-game", // Cambia por tu repo
+    github: "https://github.com/FRANKEVIN25/tetris-game",
   },
 ];
