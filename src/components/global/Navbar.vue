@@ -34,7 +34,7 @@
 
       <div class="my-auto flex items-center gap-2">
         <a
-          href="https://github.com/frankkevin25"
+          href="https://github.com/frankevin25"
           target="_blank"
           title="Github"
           class="hover:bg-card text-foreground flex cursor-pointer items-center justify-between rounded-lg p-2"
