@@ -4,14 +4,13 @@ import { defineConfig } from "vite";
 import sitemap from "vite-plugin-sitemap";
 
 export default defineConfig({
-  // Cambia 'mi-portafolio' por el nombre de tu repositorio de GitHub
-  base: process.env.NODE_ENV === 'production' ? '/mi-portafolio/' : '/',
+  base: '/', // Simplemente así
 
   plugins: [
     vue(),
     tailwindcss(),
     sitemap({
-      hostname: "https://FRANKKEVIN25.github.io/mi-portafolio", // Cambia esto
+      hostname: "https://frankevin25.github.io/mi-portafolio",
       outDir: "dist",
       i18n: {
         defaultLanguage: "pt-BR",
