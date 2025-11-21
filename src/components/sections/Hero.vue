@@ -1,3 +1,18 @@
+<script setup lang="ts">
+import { Download, Share2 } from "lucide-vue-next";
+import { useI18n } from "vue-i18n";
+import { RouterLink } from "vue-router";
+import GradientCursor from "../global/GradientCursor.vue";
+import HeroArt from "../HeroArt.vue";
+import ScrollAdvise from "../ScrollAdvise.vue";
+import Button from "../ui/Button.vue";
+
+const { t } = useI18n();
+
+// Define la ruta del CV aquí
+const cvPath = `${import.meta.env.BASE_URL}resumes/Frank.pdf`;
+</script>
+
 <template>
   <GradientCursor>
     <section id="hero" class="h-[100vh] pt-18">
@@ -37,7 +52,7 @@
           >
             <Button
               as="a"
-              :href="`/resumes/Frank.pdf`"
+              :href="cvPath"
               download
               target="_blank"
             >
@@ -56,15 +71,3 @@
     </section>
   </GradientCursor>
 </template>
-
-<script setup lang="ts">
-import { Download, Share2 } from "lucide-vue-next";
-import { useI18n } from "vue-i18n";
-import { RouterLink } from "vue-router";
-import GradientCursor from "../global/GradientCursor.vue";
-import HeroArt from "../HeroArt.vue";
-import ScrollAdvise from "../ScrollAdvise.vue";
-import Button from "../ui/Button.vue";
-
-const { t } = useI18n();
-</script>

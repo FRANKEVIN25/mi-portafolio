@@ -75,7 +75,7 @@ const messages = {
           description:
             "Videojuego estilo Snake desarrollado en Python con Pygame, donde controlas un personaje que debe atrapar frutas.",
         },
-        dashboardiot: {
+        dashboard: {
         title: "Dashboard",
         description:
       "Visualización de la dinámica del Gasto Público en el Perú, desglosada por sus tres niveles de gobierno (Nacional, Regional y Local). El dashboard permite comparar la asignación, la ejecución y las tendencias del gasto corriente y de inversión en cada una de las regiones.",
